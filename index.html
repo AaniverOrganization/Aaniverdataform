@@ -810,8 +810,205 @@
             .contact-name {
                 font-size: 1.3em;
             }
+        <!-- Add these styles to your CSS section -->
+<style>
+    /* Enhanced Success Message */
+    .success-message {
+        background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        color: #155724;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        border-left: 5px solid #28a745;
+        display: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.2);
+        transform: scale(0.9);
+        opacity: 0;
+        transition: all 0.5s ease;
+        text-align: center;
+    }
+
+    .success-message.show {
+        display: block;
+        transform: scale(1);
+        opacity: 1;
+        animation: bounceIn 0.6s ease;
+    }
+
+    .success-message::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.3) 50%, transparent 55%);
+        background-size: 300% 300%;
+        animation: shine 3s infinite linear;
+    }
+
+    .success-message i {
+        font-size: 2em;
+        margin-bottom: 10px;
+        display: inline-block;
+        animation: checkmark 0.5s ease;
+    }
+
+    /* Enhanced Error Message */
+    .error-message {
+        background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+        color: #721c24;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        border-left: 5px solid #dc3545;
+        display: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+        transform: translateX(-20px);
+        opacity: 0;
+        transition: all 0.5s ease;
+        text-align: center;
+    }
+
+    .error-message.show {
+        display: block;
+        transform: translateX(0);
+        opacity: 1;
+        animation: shake 0.5s ease;
+    }
+
+    .error-message i {
+        font-size: 2em;
+        margin-bottom: 10px;
+        display: inline-block;
+        animation: pulse 1s infinite;
+    }
+
+    /* Enhanced Loading Message */
+    .loading {
+        background: linear-gradient(135deg, #e2e3e5, #d6d8db);
+        color: #383d41;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        border-left: 5px solid #6c757d;
+        display: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(108, 117, 125, 0.2);
+        text-align: center;
+    }
+
+    .loading.show {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .loading i {
+        font-size: 2em;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+
+    /* Animations */
+    @keyframes checkmark {
+        0% { transform: scale(0); opacity: 0; }
+        80% { transform: scale(1.2); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes bounceIn {
+        0% { transform: scale(0.9); opacity: 0; }
+        50% { transform: scale(1.05); }
+        80% { transform: scale(0.95); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        20%, 60% { transform: translateX(-5px); }
+        40%, 80% { transform: translateX(5px); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes shine {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    /* Confetti Effect */
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f00;
+        opacity: 0;
+        z-index: 10;
+    }
+
+    /* Heartbeat Animation */
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .heartbeat {
+        animation: heartbeat 1s infinite;
+<!-- Add this right before the closing </body> tag -->
+<div class="watermark-credit">
+    Crafted by Samar • 10 Days of Dedication
+</div>
+
+<style>
+    .watermark-credit {
+        position: fixed;
+        bottom: 12px;
+        right: 12px;
+        font-size: 0.75em;
+        color: rgba(51, 51, 51, 0.45); /* 45% opacity gray */
+        z-index: 100;
+        pointer-events: none;
+        font-family: 'Arial', sans-serif;
+        padding: 2px 8px;
+        border-radius: 12px;
+        animation: fadeIn 3s ease-in-out;
+    }
+    
+    @media (max-width: 768px) {
+        .watermark-credit {
+            position: static;
+            text-align: center;
+            margin: 20px 0 10px;
+            padding: 6px;
+            color: rgba(51, 51, 51, 0.45);
         }
-    </style>
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+    }
+</style>
+
 </head>
 <body>
     <div class="container">
@@ -883,22 +1080,87 @@
                     </div>
                 </div>
             </div>
+ <div class="contact-section">
+                <h2 class="contact-heading">💬 Need help before registration ? Connect With Our Heroes</h2>
+
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-avatar">👨‍💼</div>
+                        <div class="contact-name">Santhakumar</div>
+                        <div class="contact-role">Founder & Visionary</div>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <a href="mailto:aanivercbe@gmail.com" class="contact-link">aanivercbe@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <a href="tel:+919791303018" class="contact-link">9791303018</a>
+                            </div>
+                        </div>
+                        <div class="whatsapp-button-container">
+                            <a href="https://wa.me/919791303018?text=Hello%20Santhakumar,%20I'm%20interested%20in%20blood%20donation." class="whatsapp-button" target="_blank">
+                                <span class="whatsapp-icon">📱</span> Chat on WhatsApp
+                            </a>
+                        </div>
+                        <div class="contact-quote">
+                            "Every drop of blood donated is a drop of hope for someone fighting for their life."
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-avatar">🤝</div>
+                        <div class="contact-name">Peter</div>
+                        <div class="contact-role">Coordinator & Life Connector</div>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">📧</span>
+                                <a href="mailto:arokiapeter49@gmail.com" class="contact-link">arokiapeter49@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📞</span>
+                                <a href="tel:+919791982638" class="contact-link">9791982638</a>
+                            </div>
+                        </div>
+                        <div class="whatsapp-button-container">
+                            <a href="https://wa.me/919791982638?text=Hello%20Peter,%20I'm%20interested%20in%20blood%20donation." class="whatsapp-button" target="_blank">
+                                <span class="whatsapp-icon">📱</span> Chat on WhatsApp
+                            </a>
+                        </div>
+                        <div class="contact-quote">
+                            "Being a bridge between donors and recipients is the most rewarding job in the world."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card" style="margin-top: 30px;">
+                    <div class="contact-avatar">🏢</div>
+                    <div class="contact-name">Aaniver Organization</div>
+                    <div class="contact-role">Headquarters</div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:aanivercbe@gmail.com" class="contact-link">aanivercbe@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                NO: 4, OOR GOUNDER STREET, MARUTHAPURAM,<br>
+                                BHARATHIAR UNIVERSITY POST, COIMBATORE - 641046
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-quote">
+                        "Where compassion meets action, and lives are transformed through the gift of blood."
+                    </div>
+                </div>
+            </div>
 
             <!-- Blood Donor Registration Form -->
             <div class="donor-form-container">
                 <h2><i class="fas fa-heart"></i> Become a Blood Donor</h2>
                 
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle"></i> Registration successful! Thank you for becoming a blood donor.
-                </div>
                 
-                <div class="error-message" id="errorMessage">
-                    <i class="fas fa-exclamation-triangle"></i> There was an error submitting your registration. Please try again.
-                </div>
-                
-                <div class="loading" id="loadingMessage">
-                    <i class="fas fa-spinner fa-spin"></i> Submitting your registration...
-                </div>
                 
                 <form id="donorRegistrationForm">
                     <div class="form-grid">
@@ -1002,90 +1264,164 @@
                         <button type="submit" class="cta-button">
                             <i class="fas fa-tint"></i> Register as Donor
                         </button>
-                    </div>
-                </form>
-            </div>
+          <!-- Update your message divs in the HTML -->
+<div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle heartbeat" style="color: #28a745;"></i>
+    <h3 style="margin-bottom: 10px;">Hero Registered! 🎉</h3>
+    <p>Thank you for joining our life-saving mission. Your blood could save up to 3 lives!</p>
+    <div class="confetti-container" id="confettiContainer"></div>
+</div>
 
-            <div class="contact-section">
-                <h2 class="contact-heading">💬 Connect With Our Heroes</h2>
+<div class="error-message" id="errorMessage">
+    <i class="fas fa-exclamation-triangle" style="color: #dc3545;"></i>
+    <h3 style="margin-bottom: 10px;">Oops! Something went wrong</h3>
+    <p>We couldn't process your registration. Please try again or contact us directly.</p>
+</div>
 
-                <div class="contact-cards">
-                    <div class="contact-card">
-                        <div class="contact-avatar">👨‍💼</div>
-                        <div class="contact-name">Santhakumar</div>
-                        <div class="contact-role">Founder & Visionary</div>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">📧</span>
-                                <a href="mailto:aanivercbe@gmail.com" class="contact-link">aanivercbe@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📞</span>
-                                <a href="tel:+919791303018" class="contact-link">9791303018</a>
-                            </div>
-                        </div>
-                        <div class="whatsapp-button-container">
-                            <a href="https://wa.me/919791303018?text=Hello%20Santhakumar,%20I'm%20interested%20in%20blood%20donation." class="whatsapp-button" target="_blank">
-                                <span class="whatsapp-icon">📱</span> Chat on WhatsApp
-                            </a>
-                        </div>
-                        <div class="contact-quote">
-                            "Every drop of blood donated is a drop of hope for someone fighting for their life."
-                        </div>
-                    </div>
+<div class="loading" id="loadingMessage">
+    <i class="fas fa-spinner fa-spin" style="color: #6c757d;"></i>
+    <h3 style="margin-bottom: 10px;">Saving Your Hero Profile</h3>
+    <p>Just a moment while we add you to our life-saving network...</p>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+</div>
 
-                    <div class="contact-card">
-                        <div class="contact-avatar">🤝</div>
-                        <div class="contact-name">Peter</div>
-                        <div class="contact-role">Coordinator & Life Connector</div>
-                        <div class="contact-details">
-                            <div class="contact-item">
-                                <span class="contact-icon">📧</span>
-                                <a href="mailto:arokiapeter49@gmail.com" class="contact-link">arokiapeter49@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <span class="contact-icon">📞</span>
-                                <a href="tel:+919791982638" class="contact-link">9791982638</a>
-                            </div>
-                        </div>
-                        <div class="whatsapp-button-container">
-                            <a href="https://wa.me/919791982638?text=Hello%20Peter,%20I'm%20interested%20in%20blood%20donation." class="whatsapp-button" target="_blank">
-                                <span class="whatsapp-icon">📱</span> Chat on WhatsApp
-                            </a>
-                        </div>
-                        <div class="contact-quote">
-                            "Being a bridge between donors and recipients is the most rewarding job in the world."
-                        </div>
-                    </div>
-                </div>
+<!-- Add this to your JavaScript -->
+<script>
+    // Show messages with animations
+    function showSuccessMessage() {
+        const successMsg = document.getElementById('successMessage');
+        successMsg.classList.add('show');
+        createConfetti();
+    }
 
-                <div class="contact-card" style="margin-top: 30px;">
-                    <div class="contact-avatar">🏢</div>
-                    <div class="contact-name">Aaniver Organization</div>
-                    <div class="contact-role">Headquarters</div>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <span class="contact-icon">📧</span>
-                            <a href="mailto:aanivercbe@gmail.com" class="contact-link">aanivercbe@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                NO: 4, OOR GOUNDER STREET, MARUTHAPURAM,<br>
-                                BHARATHIAR UNIVERSITY POST, COIMBATORE - 641046
-                            </div>
-                        </div>
-                    </div>
-                    <div class="contact-quote">
-                        "Where compassion meets action, and lives are transformed through the gift of blood."
-                    </div>
-                </div>
-            </div>
+    function showErrorMessage() {
+        document.getElementById('errorMessage').classList.add('show');
+    }
 
+    function showLoadingMessage() {
+        document.getElementById('loadingMessage').classList.add('show');
+        animateProgressBar();
+    }
+
+    function hideMessages() {
+        document.getElementById('successMessage').classList.remove('show');
+        document.getElementById('errorMessage').classList.remove('show');
+        document.getElementById('loadingMessage').classList.remove('show');
+    }
+
+    // Confetti effect
+    function createConfetti() {
+        const container = document.getElementById('confettiContainer');
+        container.innerHTML = '';
+        
+        const colors = ['#e74c3c', '#2ecc71', '#3498db', '#f1c40f', '#9b59b6'];
+        
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = -10 + 'px';
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            container.appendChild(confetti);
+            
+            // Animate each confetti piece
+            setTimeout(() => {
+                confetti.style.opacity = '1';
+                confetti.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+                confetti.style.transition = `all ${3 + Math.random() * 2}s ease-out`;
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }, i * 50);
+        }
+    }
+
+    // Progress bar animation
+    function animateProgressBar() {
+        const progress = document.querySelector('.progress');
+        progress.style.width = '0%';
+        
+        setTimeout(() => {
+            progress.style.width = '30%';
+        }, 300);
+        
+        setTimeout(() => {
+            progress.style.width = '70%';
+        }, 700);
+        
+        setTimeout(() => {
+            progress.style.width = '90%';
+        }, 1200);
+    }
+
+    // Add progress bar styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .progress-bar {
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #e74c3c, #ff6b6b);
+            transition: width 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Update your form submission handler to use these new functions
+    document.getElementById('donorRegistrationForm').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        
+        hideMessages();
+        showLoadingMessage();
+        
+        try {
+            // Your existing submission code
+            
+            // On success:
+            showSuccessMessage();
+            
+            // On error:
+            // showErrorMessage();
+            
+        } catch (error) {
+            showErrorMessage();
+        }
+    });
+</script>
+
+           
             <div class="footer">
                 <p>Join thousands of heroes who choose to save lives through blood donation</p>
             </div>
         </div>
+<!-- Add this just before the closing </div> of your main container -->
+<div style="text-align: center; margin-top: 40px; font-size: 0.8em; color: #666666; opacity: 0.7;">
+    Created by Samars • 2025
+</div>
     </div>
 
     
